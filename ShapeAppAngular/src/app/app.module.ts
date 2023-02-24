@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculBmiComponent } from './components/user/calcul-bmi/calcul-bmi.component';
+import { GraphiqueComponent } from './components/user/graphique/graphique.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculBmiComponent
+    CalculBmiComponent,
+    GraphiqueComponent
   ],
   imports: [
     BrowserModule,

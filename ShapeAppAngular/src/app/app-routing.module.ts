@@ -1,14 +1,12 @@
+import { GraphiqueComponent } from './components/user/graphique/graphique.component';
 import { CalculBmiComponent } from './components/user/calcul-bmi/calcul-bmi.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-     // BMI
-     {
-      path: 'bmi',
-      component:CalculBmiComponent
 
-    },
+  {path: 'bmi',component:CalculBmiComponent},// IMC
+  {path: 'graphique',component:GraphiqueComponent},// Graphique
 ];
 
 @NgModule({
