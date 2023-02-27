@@ -1,3 +1,4 @@
+import { ExerciceService } from './../../../../services/exercice/exercice.service';
 import { Router } from '@angular/router';
 import { EntrainementService } from './../../../../services/entrainement/entrainement.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddEntrainementComponent implements OnInit{
   declare form : FormGroup;
 
+  declare exercices :any;
+
   constructor(
     private entrainementService: EntrainementService,
+    private exerciceService:ExerciceService,
     private router : Router,
     private formBuilder: FormBuilder,
   ){
@@ -32,6 +36,16 @@ export class AddEntrainementComponent implements OnInit{
       distance: [''],
       uid: [''],
     })
+
+    this.exerciceService.getAllExercices().subscribe(
+      data => {
+        console.log(data);
+        this.exercices = data;
+
+      }
+    );
+
+
   }
   create(){
     console.log(this.form.value);

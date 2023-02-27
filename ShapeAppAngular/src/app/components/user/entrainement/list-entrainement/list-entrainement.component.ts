@@ -17,6 +17,7 @@ export class ListEntrainementComponent implements OnInit {
   declare exercices : Exercice[];
   declare entrainements : any;
 
+
   constructor(
     private exerciceService : ExerciceService,
     private muscleService : MuscleService,
@@ -34,6 +35,8 @@ export class ListEntrainementComponent implements OnInit {
     this.getMuscles();
     this.getExercices();
     this.getEntrainements();
+
+
 
 
   }

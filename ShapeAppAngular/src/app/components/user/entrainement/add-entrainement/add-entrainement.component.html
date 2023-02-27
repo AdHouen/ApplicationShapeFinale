@@ -4,9 +4,9 @@
 <br>
 <div class="container">
     <form  [formGroup]="form" (ngSubmit)="create()">
-      <div class="form-group" style="text-align: center;">
+      <div class="form-group">
+        <div class="radio" id="jour">
         <div class="container" id="radioJour">
-          <div class="radio" id="jour">
             <input label="Lundi" type="radio" id="jour"  value="Lundi" formControlName="jour">
             <input label="Mardi" type="radio" id="jour" value="Mardi" formControlName="jour">
             <input label="Mercredi" type="radio" id="jour" value="Mercredi" formControlName="jour">
@@ -35,12 +35,20 @@
         <br>
 
 
+        <div class="radio"  *ngFor="let item of exercices" >
+          <div class="container"  *ngIf="item.muscleId==1" id="radioExercice">
+            <label >{{item.nom}}
+              <input  label="&#x2705;" type="radio" id="exercice"  value="{{item.nom}}" formControlName="exercice">
+            </label>
+          </div>
+        </div>
 
 
-        <div class="input-field col s16">
+
+        <!-- <div class="input-field col s16">
         <label for="exercice" id="labelChamps">Exercice</label>
           <input type="text" name="" id="inputChamps" class="form-control" formControlName="exercice" data-length="10">
-        </div>
+        </div> -->
         <div class="input-field col s16">
           <label for="serie" id="labelChamps">Série</label>
           <input type="text" name="" id="inputChamps" class="form-control" formControlName="serie" data-length="10">
@@ -75,5 +83,9 @@
     </form>
 </div>
 {{form.value | json}}
+
+
+
+
 
 
