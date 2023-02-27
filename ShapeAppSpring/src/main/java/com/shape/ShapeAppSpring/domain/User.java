@@ -64,6 +64,10 @@ public class User implements Serializable{
 		//Avec Muscle
 		@OneToMany(fetch = FetchType.LAZY, mappedBy = "uid")
 		private List<Muscle> listMuscle= new ArrayList<>();
+
+		//Avec Entrainement
+		@OneToMany(fetch = FetchType.LAZY, mappedBy = "uid")
+		private List<Entrainement> listEntrainement= new ArrayList<>();
 		
 	// GETTER
 
@@ -137,6 +141,9 @@ public class User implements Serializable{
 
 	public List<Muscle> getListMuscle() {
 		return listMuscle;
+	}
+	public List<Entrainement> getListEntrainement() {
+		return listEntrainement;
 	}
 	
 	// SETTER
@@ -212,6 +219,9 @@ public class User implements Serializable{
 	public void setListMuscle(List<Muscle> listMuscle) {
 		this.listMuscle = listMuscle;
 	}
+	public void setListEntrainement(List<Entrainement> listEntrainement) {
+		this.listEntrainement = listEntrainement;
+	}
 	
 	// CONSTRUCTOR
 	
@@ -220,10 +230,9 @@ public class User implements Serializable{
 	}
 
 	public User(Long uid, String userId, String email, String password, String username, String authorization,
-			String firstname, String lastname, String profileImageURL, Date lastLoginDate,
-			Date lastLoginDateDisplay, Date joinDate, String role, String[] authorities, boolean isActive,
-			boolean isNotLocked, List<Galerie> listGallerie,
-			List<Muscle> listMuscle) {
+			String firstname, String lastname, String profileImageURL, Date lastLoginDate, Date lastLoginDateDisplay,
+			Date joinDate, String role, String[] authorities, boolean isActive, boolean isNotLocked,
+			List<Galerie> listGallerie, List<Muscle> listMuscle, List<Entrainement> listEntrainement) {
 		super();
 		this.uid = uid;
 		this.userId = userId;
@@ -243,7 +252,14 @@ public class User implements Serializable{
 		this.isNotLocked = isNotLocked;
 		this.listGallerie = listGallerie;
 		this.listMuscle = listMuscle;
+		this.listEntrainement = listEntrainement;
 	}
+
+
+
+
+
+
 
 	
 	

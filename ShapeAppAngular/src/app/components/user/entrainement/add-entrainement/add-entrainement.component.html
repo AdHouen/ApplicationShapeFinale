@@ -1,0 +1,79 @@
+<br>
+<br>
+<h2 class="text-center">Ajouter un entrainement</h2>
+<br>
+<div class="container">
+    <form  [formGroup]="form" (ngSubmit)="create()">
+      <div class="form-group" style="text-align: center;">
+        <div class="container" id="radioJour">
+          <div class="radio" id="jour">
+            <input label="Lundi" type="radio" id="jour"  value="Lundi" formControlName="jour">
+            <input label="Mardi" type="radio" id="jour" value="Mardi" formControlName="jour">
+            <input label="Mercredi" type="radio" id="jour" value="Mercredi" formControlName="jour">
+            <input label="Jeudi" type="radio" id="jour" value="Jeudi" formControlName="jour">
+            <input label="Vendredi" type="radio" id="jour" value="Vendredi" formControlName="jour">
+            <input label="Samedi" type="radio" id="jour" value="Samedi" formControlName="jour">
+            <input label="Dimanche" type="radio" id="jour" value="Dimanche" formControlName="jour">
+          </div>
+        </div>
+        <br>
+
+        <div class="radio" >
+          <div class="container" id="radioMuscle">
+            <input label="Épaules" type="radio" id="muscle"  value="Épaules" formControlName="muscle">
+            <input label="Biceps" type="radio" id="muscle" value="Biceps" formControlName="muscle">
+            <input label="Triceps" type="radio" id="muscle" value="Triceps" formControlName="muscle">
+            <input label="Pectoraux" type="radio" id="muscle" value="Pectoraux" formControlName="muscle">
+            <input label="Dos" type="radio" id="muscle" value="Dos" formControlName="muscle">
+            <input label="Abdominaux" type="radio" id="muscle" value="Abdominaux" formControlName="muscle">
+            <input label="Fessiers" type="radio" id="muscle" value="Fessiers" formControlName="muscle">
+            <input label="Quadriceps" type="radio" id="muscle" value="Quadriceps" formControlName="muscle">
+            <input label="Ischio" type="radio" id="muscle" value="Ischio-jambiers" formControlName="muscle">
+            <input label="Mollets" type="radio" id="muscle" value="Mollets" formControlName="muscle">
+          </div>
+        </div>
+        <br>
+
+
+
+
+        <div class="input-field col s16">
+        <label for="exercice" id="labelChamps">Exercice</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="exercice" data-length="10">
+        </div>
+        <div class="input-field col s16">
+          <label for="serie" id="labelChamps">Série</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="serie" data-length="10">
+        </div>
+        <div class="input-field col s16">
+          <label for="repetition" id="labelChamps">Répétition</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="repetition" data-length="10">
+        </div>
+        <div class="input-field col s16">
+          <label for="poids" id="labelChamps">Poids</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="poids" data-length="10">
+        </div>
+        <div class="input-field col s16">
+          <label for="temps" id="labelChamps">Temps</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="temps" data-length="10">
+        </div>
+        <div class="input-field col s16">
+          <label for="distance">Distance</label>
+          <input type="text" name="" id="inputChamps" class="form-control" formControlName="distance" data-length="10">
+        </div>
+        <br>
+        <br>
+
+        <button class="btn btn-success " type="submit" >Soumettre</button>
+        <br>
+        <br>
+        <br>
+
+
+
+      </div>
+    </form>
+</div>
+{{form.value | json}}
+
+

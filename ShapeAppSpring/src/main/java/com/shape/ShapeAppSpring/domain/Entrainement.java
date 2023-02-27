@@ -19,6 +19,10 @@ public class Entrainement implements Serializable{
 	private Long entrainementId;
 	@Column(name = "JOUR")
 	private String jour;	
+	@Column(name = "Muscle")
+	private String muscle;
+	@Column(name = "Exercice")
+	private String exercice;
 	@Column(name = "SERIE")
 	private Integer serie;
 	@Column(name = "REPETITION")
@@ -31,8 +35,10 @@ public class Entrainement implements Serializable{
 	private Integer temps;
 	@Column(name = "DISTANCE")
 	private Integer distance;
-	@Column(name = "EXERCICEID")
-	private Long exerciceId;
+	@Column(name = "UTILISATEURID")
+	private Long uid;
+	
+	
 	
 	// GETTER
 	
@@ -41,6 +47,12 @@ public class Entrainement implements Serializable{
 	}
 	public String getJour() {
 		return jour;
+	}
+	public String getMuscle() {
+		return muscle;
+	}
+	public String getExercice() {
+		return exercice;
 	}
 	public Integer getSerie() {
 		return serie;
@@ -60,9 +72,10 @@ public class Entrainement implements Serializable{
 	public Integer getDistance() {
 		return distance;
 	}
-	public Long getExerciceId() {
-		return exerciceId;
+	public Long getUid() {
+		return uid;
 	}
+
 
 	
 	// SETTER
@@ -72,6 +85,12 @@ public class Entrainement implements Serializable{
 	}
 	public void setJour(String jour) {
 		this.jour = jour;
+	}
+	public void setMuscle(String muscle) {
+		this.muscle = muscle;
+	}
+	public void setExercice(String exercice) {
+		this.exercice = exercice;
 	}
 	public void setSerie(Integer serie) {
 		this.serie = serie;
@@ -91,9 +110,10 @@ public class Entrainement implements Serializable{
 	public void setDistance(Integer distance) {
 		this.distance = distance;
 	}
-	public void setExerciceId(Long exerciceId) {
-		this.exerciceId = exerciceId;
+	public void setUid(Long uid) {
+		this.uid = uid;
 	}
+
 
 	
 	// CONSTRUCTOR
@@ -101,19 +121,27 @@ public class Entrainement implements Serializable{
 	public Entrainement() {
 		super();
 	}
-	public Entrainement(Long entrainementId, String jour, Integer serie, Integer repetition, Integer poids,
-			Integer recup, Integer temps, Integer distance, Long exerciceId) {
+	public Entrainement(Long entrainementId, String jour, String muscle, String exercice, Integer serie,
+			Integer repetition, Integer poids, Integer recup, Integer temps, Integer distance, Long uid) {
 		super();
 		this.entrainementId = entrainementId;
 		this.jour = jour;
+		this.muscle = muscle;
+		this.exercice = exercice;
 		this.serie = serie;
 		this.repetition = repetition;
 		this.poids = poids;
 		this.recup = recup;
 		this.temps = temps;
 		this.distance = distance;
-		this.exerciceId = exerciceId;
+		this.uid = uid;
 	}
+
+
+
+	
+
+
 	
 
 

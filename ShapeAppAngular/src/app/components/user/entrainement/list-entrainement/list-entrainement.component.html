@@ -1,0 +1,121 @@
+<!-- Class Timetable Start -->
+<div class="container-fluid p-5">
+  <div class="mb-5 text-center">
+      <h5 class="text-primary text-uppercase">Ton planning</h5>
+      <h1 class="display-3 text-uppercase mb-0">Choisis ton entrainement</h1>
+      <a routerLink="/addEntrainement" class="btn btn-success waves-effect waves-light btn right orange">Ajouter un entrainement</a>
+<br>
+<br>
+  </div>
+  <div class="tab-class text-center">
+      <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5">
+          <li class="nav-item" >
+            <a class="nav-link rounded-pill text-white  active" data-bs-toggle="pill" href="#tab-1" >Lundi</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-2" >Mardi</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-3" >Mercredi</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-4" >Jeudi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-5" >Vendredi</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-6" >Samedi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-7" >Dimanche</a>
+          </li>
+      </ul>
+  </div>
+</div>
+
+<div class="tab-content ">
+
+  <div id="tab-1" class="tab-pane fade p-0 ">
+    <H1 class="text-center">Lundi</H1>
+    <table id="table_id" class="table align-middle  table-striped" >
+        <thead>
+            <tr>
+              <th scope="col">Muscle</th>
+              <th scope="col">Exercice</th>
+              <th scope="col">Serie</th>
+              <th scope="col">Répétition</th>
+              <th scope="col">Poids</th>
+              <th scope="col">Récupération</th>
+              <th scope="col">Temps</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of entrainements">
+            <td *ngIf="item.jour=='Lundi'">{{item.muscle}}</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.exercice}}</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.serie}}</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.repetition}}</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.poids}} kg</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.recup}} sec</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.temps}}</td>
+            <td *ngIf="item.jour=='Lundi'">{{item.distance}}</td>
+          </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div id="tab-2" class="tab-pane fade p-0 ">
+    <H1 class="text-center">Mardi</H1>
+    <table id="table_id" class="table align-middle  table-striped" >
+        <thead>
+            <tr>
+              <th scope="col">Muscle</th>
+              <th scope="col">Exercice</th>
+              <th scope="col">Serie</th>
+              <th scope="col">Répétition</th>
+              <th scope="col">Poids</th>
+              <th scope="col">Récupération</th>
+              <th scope="col">Temps</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of entrainements">
+
+
+             <td *ngIf="item.jour=='Mardi'">
+              <ng-container *ngFor="let item of muscles" >
+                <ng-container *ngIf="item.muscleId">
+                  {{item.nom}}
+                </ng-container>
+              </ng-container>
+            </td>
+
+
+            <td *ngIf="item.jour=='Mardi'">
+              <ng-container *ngFor="let item of exercices" >
+                <ng-container *ngIf="item.exerciceId==1">
+                  {{item.nom}}
+                </ng-container>
+              </ng-container>
+            </td>
+            <td *ngIf="item.jour=='Mardi'">{{item.serie}}</td>
+            <td *ngIf="item.jour=='Mardi'">{{item.repetition}}</td>
+            <td *ngIf="item.jour=='Mardi'">{{item.poids}}</td>
+            <td *ngIf="item.jour=='Mardi'">{{item.recup}}</td>
+            <td *ngIf="item.jour=='Mardi'">{{item.temps}}</td>
+            <td *ngIf="item.jour=='Mardi'">{{item.distance}}</td>
+          </tr>
+    </tbody>
+    </table>
+  </div>
+
+
+
+</div>
