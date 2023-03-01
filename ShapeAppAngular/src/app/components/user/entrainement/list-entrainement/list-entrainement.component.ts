@@ -1,5 +1,5 @@
-import { Exercice } from './../../../../models/exercice/exercice';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Exercice } from './../../../../models/exercice/exercice';
 import { EntrainementService } from './../../../../services/entrainement/entrainement.service';
 import { MuscleService } from './../../../../services/muscle/muscle.service';
 import { ExerciceService } from './../../../../services/exercice/exercice.service';

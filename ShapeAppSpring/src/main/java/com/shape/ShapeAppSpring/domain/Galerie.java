@@ -20,10 +20,10 @@ public class Galerie implements Serializable {
 	@Column(name = "GALERIEID")
 	private Long galerieId;
 	
-	@Column(name = "GALLERIEFILENAME")
-	private String galleriefilename;
-	@Column(name = "GALLERIE_DATE")
-	private LocalDate date;
+	@Column(name = "GALERIEFILENAME")
+	private String galeriefilename;
+	@Column(name = "DATE")
+	private LocalDate date; 
 	@Column(name = "UID")
 	private Long uid;
 	
@@ -32,8 +32,9 @@ public class Galerie implements Serializable {
 	public Long getGalerieId() {
 		return galerieId;
 	}
-	public String getGalleriefilename() {
-		return galleriefilename;
+
+	public String getGaleriefilename() {
+		return galeriefilename;
 	}
 	public LocalDate getDate() {
 		return date;
@@ -47,14 +48,15 @@ public class Galerie implements Serializable {
 	public void setGalerieId(Long galerieId) {
 		this.galerieId = galerieId;
 	}
-	public void setGalleriefilename(String galleriefilename) {
-		this.galleriefilename = galleriefilename;
-	}
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public void setUid(Long uid) {
 		this.uid = uid;
+	}
+	public void setGaleriefilename(String galeriefilename) {
+		this.galeriefilename = galeriefilename;
 	}
 	
 	// CONSTRUCTOR
@@ -62,13 +64,18 @@ public class Galerie implements Serializable {
 	public Galerie() {
 		super();
 	}
-	public Galerie(Long galerieId, String galleriefilename, LocalDate date, Long uid) {
+
+	public Galerie(Long galerieId, String galeriefilename, LocalDate date, Long uid) {
 		super();
 		this.galerieId = galerieId;
-		this.galleriefilename = galleriefilename;
+		this.galeriefilename = galeriefilename;
 		this.date = date;
 		this.uid = uid;
 	}
+
+
+
+
 
 
 

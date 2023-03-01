@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+  <div class="mt-5 row justify-content-center">
+
+      <div class="col-5 mb-3">
+          <label class="px-4">Select File: </label>
+          <input type="file" (change)="selectFile($event)" />
+      </div>
+
+      <div class="col-2">
+          <button class="btn btn-success btn-lg" (click)="uploadFile()">Upload</button>
+      </div>
+  </div>
+</div>
+<!-- <app-list-gallerie></app-list-gallerie> -->
+
+<h1>Galerie Photo</h1>
+<ng-container *ngFor="let g of galerie">
+  <h6>{{g.date}}</h6>
+</ng-container>
+<br>
+<table id="table_id" class="table " >
+    <tbody>
+      <div class="responsive "  *ngFor="let g of galerie ">
+        <div class="gallery  " *ngIf="g.uid == 1" >
+          <div class="image">
+            <img class=img-responsive  src="http://localhost:8090/image/{{g.galeriefilename}}" >
+          </div>
+          <div class="desc">{{g.date}} </div>
+        </div>
+      </div>
+</tbody>

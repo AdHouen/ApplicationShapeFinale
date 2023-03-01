@@ -1,8 +1,10 @@
+import { NotifierService } from 'angular-notifier';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MuscleService } from './../../../services/muscle/muscle.service';
 import { ExerciceService } from './../../../services/exercice/exercice.service';
 import { Muscle } from './../../../models/muscle/muscle';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-exercice',
@@ -12,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ExerciceComponent implements OnInit {
 
 
+
   declare exercices : any;
   declare muscles:Muscle[];
 
@@ -19,8 +22,14 @@ export class ExerciceComponent implements OnInit {
     private exerciceService : ExerciceService,
     private muscleService : MuscleService,
     private router : Router,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private notifier: NotifierService,
+
+
+
+
   ){
+    
 
   }
 
@@ -28,6 +37,9 @@ export class ExerciceComponent implements OnInit {
   ngOnInit(): void {
     this.getExercices();
     this.getMuscles();
+    this.notifier.notify('success', 'You are awesome! I mean it!');
+
+
 
   }
   getMuscles() {

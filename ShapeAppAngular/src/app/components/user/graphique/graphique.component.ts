@@ -29,14 +29,26 @@ export class GraphiqueComponent implements OnInit{
 //       data: moreDataBaby,
 //   }]
 // };
-
+declare data:any;
 constructor(){
 
 }
   ngOnInit(): void {
 
+  // }
+  // public config: any = {
+  //   type: 'line',
+  //   data: data,
+  //   options: {
+  //     responsive: true,
+  //     plugins: {
+  //       title: {
+  //         display: true,
+  //         text: (ctx: { chart: { data: { datasets: { pointStyle: string; }[]; }; }; }) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+  //       }
+  //     }
+  //   }
+  // };
   }
-
-
 
 }

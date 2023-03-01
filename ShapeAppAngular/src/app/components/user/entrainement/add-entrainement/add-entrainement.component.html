@@ -7,7 +7,7 @@
       <div class="form-group">
         <div class="radio" id="jour">
         <div class="container" id="radioJour">
-            <input label="Lundi" type="radio" id="jour"  value="Lundi" formControlName="jour">
+            <input label="Lundi" type="radio" id="jour"  value="Lundi" formControlName="jour" >
             <input label="Mardi" type="radio" id="jour" value="Mardi" formControlName="jour">
             <input label="Mercredi" type="radio" id="jour" value="Mercredi" formControlName="jour">
             <input label="Jeudi" type="radio" id="jour" value="Jeudi" formControlName="jour">
@@ -34,6 +34,22 @@
         </div>
         <br>
 
+        <!-- <div class="button" >
+          <div class="container" id="buttonMuscle">
+            <button label="Épaules" type="button" id="muscle"  value="Épaules" formControlName="muscle" (click)="afficherExercice()">Epaule</button>
+            <button label="Biceps" type="button" id="muscle" value="Biceps" formControlName="muscle" (click)="afficherExercice()">Biceps</button>
+            <button label="Triceps" type="button" id="muscle" value="Triceps" formControlName="muscle">Triceps</button>
+            <button label="Pectoraux" type="button" id="muscle" value="Pectoraux" formControlName="muscle">Pectauraux</button>
+            <button label="Dos" type="button" id="muscle" value="Dos" formControlName="muscle"></button>
+            <button label="Abdominaux" type="button" id="muscle" value="Abdominaux" formControlName="muscle"></button>
+            <button label="Fessiers" type="button" id="muscle" value="Fessiers" formControlName="muscle"></button>
+            <button label="Quadriceps" type="button" id="muscle" value="Quadriceps" formControlName="muscle"></button>
+            <button label="Ischio" type="button" id="muscle" value="Ischio-jambiers" formControlName="muscle"></button>
+            <button label="Mollets" type="button" id="muscle" value="Mollets" formControlName="muscle"></button>
+          </div>
+        </div>
+        <br> -->
+
 
         <div class="radio"  *ngFor="let item of exercices" >
           <div class="container"  *ngIf="item.muscleId==1" id="radioExercice">
@@ -43,12 +59,28 @@
           </div>
         </div>
 
+        <div class="radio"  *ngFor="let item of exercices">
+          <div class="container"  *ngIf="item.muscleId==2" id="radioExercice">
+            <label >{{item.nom}}
+              <input  label="&#x2705;" type="radio" id="exercice"  value="{{item.nom}}" formControlName="exercice">
+            </label>
+          </div>
+        </div>
+
+        <div class="radio"  *ngFor="let item of exercices">
+          <div class="container"  *ngIf="item.muscleId==3" id="radioExercice">
+            <label >{{item.nom}}
+              <input  label="&#x2705;" type="radio" id="exercice"  value="{{item.nom}}" formControlName="exercice">
+            </label>
+          </div>
+        </div>
 
 
-        <!-- <div class="input-field col s16">
+
+        <div class="input-field col s16">
         <label for="exercice" id="labelChamps">Exercice</label>
           <input type="text" name="" id="inputChamps" class="form-control" formControlName="exercice" data-length="10">
-        </div> -->
+        </div>
         <div class="input-field col s16">
           <label for="serie" id="labelChamps">Série</label>
           <input type="text" name="" id="inputChamps" class="form-control" formControlName="serie" data-length="10">
@@ -69,10 +101,13 @@
           <label for="distance">Distance</label>
           <input type="text" name="" id="inputChamps" class="form-control" formControlName="distance" data-length="10">
         </div>
-        <br>
-        <br>
 
-        <button class="btn btn-success " type="submit" >Soumettre</button>
+        <br>
+        <br>
+        <div>
+          <button  class="btn btn-success " type="submit" >Soumettre</button>
+        </div>
+
         <br>
         <br>
         <br>
