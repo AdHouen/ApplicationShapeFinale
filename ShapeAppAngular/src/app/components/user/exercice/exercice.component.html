@@ -7,41 +7,16 @@
   <div class="tab-class text-center">
       <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5">
           <li class="nav-item" *ngFor="let item of muscles">
-              <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-1" *ngIf="item.muscleId==1">{{item.nom}}</a>
+              <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-{{item.muscleId}}" id="id-{{item.muscleId}}">{{item.nom}}</a>
           </li>
-          <li class="nav-item" *ngFor="let item of muscles">
-            <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-2" *ngIf="item.muscleId==2">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-3" *ngIf="item.muscleId==3">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-4" *ngIf="item.muscleId==4">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-5" *ngIf="item.muscleId==5">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-6" *ngIf="item.muscleId==6">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-7" *ngIf="item.muscleId==7">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-8" *ngIf="item.muscleId==8">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-9" *ngIf="item.muscleId==9">{{item.nom}}</a>
-        </li>
-        <li class="nav-item" *ngFor="let item of muscles">
-          <a class="nav-link rounded-pill text-white " data-bs-toggle="pill" href="#tab-10" *ngIf="item.muscleId==10">{{item.nom}}</a>
-        </li>
+
       </ul>
   </div>
 
   <!-- Class Timetable Start -->
-<div class="tab-content ">
-  <div id="tab-1" class="tab-pane fade p-0 ">
+<div class="tab-content " *ngFor="let item of muscles">
+
+  <div id="tab-{{item.muscleId}}" class="tab-pane fade p-0 " ng-init="afficherEnPrems()">
         <table id="table_id" class="table align-middle  table-striped" >
         <thead>
             <tr>
@@ -53,8 +28,8 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of exercices">
-            <td *ngIf="item.muscleId==1">{{item.nom}}</td>
-            <td *ngIf="item.muscleId==1" >
+            <td *ngIf="item.muscleId==item.muscleId">{{item.nom}}</td>
+            <td *ngIf="item.muscleId==item.muscleId" >
               <div class="responsive ">
                 <div class="gallery  ">
                   <div class="image">
@@ -63,7 +38,7 @@
                 </div>
               </div>
             </td>
-            <td *ngIf="item.muscleId==1" >
+            <td *ngIf="item.muscleId==item.muscleId" >
               <div class="responsive ">
                 <div class="gallery  ">
                   <div class="image">
@@ -73,7 +48,7 @@
               </div>
             </td>
 
-            <td *ngIf="item.muscleId==1">{{item.description}}</td>
+            <td *ngIf="item.muscleId==item.muscleId">{{item.description}}</td>
 
         </tr>
     </tbody>

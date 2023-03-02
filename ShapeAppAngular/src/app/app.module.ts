@@ -16,6 +16,7 @@ import { GraphiqueComponent } from './components/user/graphique/graphique.compon
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { CommonModule } from '@angular/common';
 import { ListGallerieComponent } from './components/user/gallerie/list-gallerie/list-gallerie.component';
+import { GallerieImageComponent } from './components/user/gallerie/gallerie-image/gallerie-image.component';
 
 
 
@@ -75,6 +76,8 @@ const customNotifierOptions: NotifierOptions = {
     ListEntrainementComponent,
     AddEntrainementComponent,
     ListGallerieComponent,
+    UploadFileComponent,
+    GallerieImageComponent,
 
 
 

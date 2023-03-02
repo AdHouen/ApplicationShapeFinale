@@ -31,7 +31,9 @@ export class GalerieService {
   }
 
   /* I delete un muscle */
-  public deleteGalerie(galerieId: number) : Observable< Galerie >{
+  public deleteGalerie(galerieId: number) : Observable<Galerie>{
+    console.log("log delGalerie : "+galerieId);
+
     return this.http.delete<Galerie>(`${this.host}/galeries/${galerieId}`);
   }
 }

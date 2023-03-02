@@ -34,7 +34,7 @@ div.desc {
 
 .responsive {
   padding: 0 1rem 1rem ;
-  float: left;
+ display: inline-block;
   width: 25%;
 
 }

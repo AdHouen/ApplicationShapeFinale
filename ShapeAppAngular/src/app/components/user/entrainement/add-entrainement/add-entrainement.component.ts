@@ -1,3 +1,4 @@
+import { MuscleService } from './../../../../services/muscle/muscle.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ExerciceService } from './../../../../services/exercice/exercice.service';
@@ -16,10 +17,15 @@ export class AddEntrainementComponent implements OnInit{
 
   declare exercices :any;
 
+  declare muscles :any [];
+
+  typeMuscle:number = 0;
+
 
   constructor(
     private entrainementService: EntrainementService,
     private exerciceService:ExerciceService,
+    private muscleService : MuscleService,
     private router : Router,
     private formBuilder: FormBuilder,
   ){
@@ -48,6 +54,14 @@ export class AddEntrainementComponent implements OnInit{
       }
     );
 
+    this.muscleService.getAllMuscles().subscribe(
+      data => {
+        // console.log(data);
+        this.muscles = data;
+
+      }
+    );
+
 
   }
   create(){
@@ -60,20 +74,10 @@ export class AddEntrainementComponent implements OnInit{
 
   }
 
-  afficherExercice() {
-    console.log("Coucou");
+  afficherExo(muscleId:number){
+    this.typeMuscle=muscleId;
+  }
 
-    // if (this.form.value.muscle == "Épaules") {
-    //   this.epauleExo == false
-    // }
-    // if (this.form.value.muscle == "Biceps") {
-    //   this.bicepsExo == false
-    // }
-
-    // this.epauleExo == false;
-    // window.location.reload();
-
-    }
 
 
 

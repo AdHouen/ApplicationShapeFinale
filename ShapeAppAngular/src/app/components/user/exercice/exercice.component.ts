@@ -29,7 +29,7 @@ export class ExerciceComponent implements OnInit {
 
 
   ){
-    
+
 
   }
 
@@ -37,10 +37,16 @@ export class ExerciceComponent implements OnInit {
   ngOnInit(): void {
     this.getExercices();
     this.getMuscles();
-    this.notifier.notify('success', 'You are awesome! I mean it!');
+    this.notifier.notify('success', 'Chargement des exercices avec succes');
 
 
 
+
+
+  }
+
+  afficherEnPrems(){
+    document.getElementById("id-1")?.click();
   }
   getMuscles() {
     this.muscleService.getAllMuscles().subscribe(
@@ -56,6 +62,7 @@ export class ExerciceComponent implements OnInit {
       data => {
         console.log(data);
         this.exercices=data;
+
 
       }
     )

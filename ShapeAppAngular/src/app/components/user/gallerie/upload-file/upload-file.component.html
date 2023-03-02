@@ -14,18 +14,32 @@
 <!-- <app-list-gallerie></app-list-gallerie> -->
 
 <h1>Galerie Photo</h1>
-<ng-container *ngFor="let g of galerie">
-  <h6>{{g.date}}</h6>
-</ng-container>
 <br>
-<table id="table_id" class="table " >
+<div *ngFor="let photo of galerie">
+  <div>
+    {{photo[0].date}}
+  </div>
+  <!-- <div > -->
+    <!-- <img  *ngFor="let h of photo" src="http://localhost:8090/image/{{h.galeriefilename}}" alt=""> -->
+  <!-- </div> -->
+ <app-gallerie-image *ngFor="let h of photo" [photo]="h" (delPic)="delPhoto($event)"></app-gallerie-image>
+
+</div>
+
+
+
+
+
+
+
+<!-- <table id="table_id" class="table " >
     <tbody>
       <div class="responsive "  *ngFor="let g of galerie ">
-        <div class="gallery  " *ngIf="g.uid == 1" >
-          <div class="image">
-            <img class=img-responsive  src="http://localhost:8090/image/{{g.galeriefilename}}" >
-          </div>
-          <div class="desc">{{g.date}} </div>
-        </div>
+        <div class="gallery  "  >
+          <div class="image"> -->
+            <!-- <img class=img-responsive  src="http://localhost:8090/image/{{g.galeriefilename}}" > -->
+          <!-- </div> -->
+          <!-- <div class="desc">{{g.date}} </div> -->
+        <!-- </div>
       </div>
-</tbody>
+</tbody> -->

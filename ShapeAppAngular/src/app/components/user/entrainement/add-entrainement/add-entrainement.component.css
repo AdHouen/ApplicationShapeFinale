@@ -97,7 +97,7 @@
 
 
 }
-.container #radioExercice{
+.container .radioExercice{
   color: #fff;
   width: 70%;
   display: flex;
@@ -105,14 +105,28 @@
   justify-content: space-evenly;
 
 }
-.radio #radioExercice input:before {
+.radio.hide{
+  display: none;
+}
+
+
+
+
+.radioExercice input{
+  display: none;
+}
+
+.radio .radioExercice input:before {
 	content: attr(label);
 	text-align: center;
 	width: 100%;
   color: rgb(113, 113, 113);
 
 }
-#radioExercice input:checked{
+
+
+
+.radioExercice input:checked + label{
 	background-image: linear-gradient(180deg, #4dd92a, #012d0d);
 
 }

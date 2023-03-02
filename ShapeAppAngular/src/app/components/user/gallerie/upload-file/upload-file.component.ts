@@ -16,7 +16,7 @@ export class UploadFileComponent implements OnInit{
   fileDetails!: any;
   fileUris: Array<string> = []; // stock les urls des images
   declare form : FormGroup;
-  declare galerie : any [];
+  galerie : any [][] = [];
 
   constructor(
     private fileUploadService: FileUploadServiceService,
@@ -72,15 +72,31 @@ export class UploadFileComponent implements OnInit{
     getGaleries() {
       return this.galerieService.getAllGaleries().subscribe(
         (data=>{
+          let dateTemp= "";
+          let i :number = -1;
+          console.log(data as any[]);
 
-          this.galerie = data as any [];
-
-
-
+          (data as any[]).forEach((element) => {
+            if (element.date != dateTemp) {
+              i++;
+              dateTemp = element.date;
+              this.galerie[i]=[];
+            }
+            this.galerie[i].push(element);
+          });
+          // this.galerie = data as any [];
+          console.log(this.galerie);
         }
           )
 
       )
+    }
+
+    delPhoto(id:number){
+     
+     window.location.reload();
+
+
     }
 
 }
