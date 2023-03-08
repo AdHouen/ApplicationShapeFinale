@@ -1,3 +1,5 @@
+import { Entrainement } from './../../../../models/entrainement/entrainement';
+import { NotifierService } from 'angular-notifier';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Exercice } from './../../../../models/exercice/exercice';
 import { EntrainementService } from './../../../../services/entrainement/entrainement.service';
@@ -16,6 +18,7 @@ export class ListEntrainementComponent implements OnInit {
   declare muscles : Muscle [];
   declare exercices : Exercice[];
   declare entrainements : any;
+  public editEntrainement = new Entrainement() ;
 
 
   constructor(
@@ -23,7 +26,9 @@ export class ListEntrainementComponent implements OnInit {
     private muscleService : MuscleService,
     private entrainementService : EntrainementService,
     private router : Router,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private notifier: NotifierService,
+
   ){
 
   }
@@ -36,7 +41,11 @@ export class ListEntrainementComponent implements OnInit {
     this.getExercices();
     this.getEntrainements();
 
+    if (this.route.snapshot.paramMap.get('id') != null) {
+      this.removeEntrainement();
+      this.router.navigate(['/entrainement']);
 
+    }
 
 
   }
@@ -67,5 +76,30 @@ export class ListEntrainementComponent implements OnInit {
       }
     )
   }
+
+  removeEntrainement() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.entrainementService.deleteEntrainement(id).subscribe(
+      () => {
+
+      this.notifier.notify('success', 'Votre entrainement à été supprimé avec succès');
+
+      }
+    )
+  }
+
+  // Méthode pour éditer un utilisateur
+  public onEditEntrainement(editEntrainement : Entrainement) {
+    this.editEntrainement = editEntrainement;
+
+    this.clickButton('openEntrainementEdit');
+  }
+
+  // Méthode générale pour le click des boutons
+  private clickButton(buttonId : string): void{
+    document.getElementById(buttonId)?.click();
+  }
+
+
 
 }

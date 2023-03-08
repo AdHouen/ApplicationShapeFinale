@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'graphique',component:GraphiqueComponent},// Graphique
   {path: 'exercice',component:ExerciceComponent},// Exercice
   {path: 'entrainement' ,component:ListEntrainementComponent },// Entrainement
+  {path: 'entrainements/:id' ,component:ListEntrainementComponent },
   {path: 'addEntrainement' ,component:AddEntrainementComponent },// Ajouter un entrainement
   {path: 'galerie' ,component:UploadFileComponent },// Galerie
 

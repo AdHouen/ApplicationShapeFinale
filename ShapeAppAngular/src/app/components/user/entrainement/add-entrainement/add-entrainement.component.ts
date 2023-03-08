@@ -1,3 +1,4 @@
+import { NotifierService } from 'angular-notifier';
 import { MuscleService } from './../../../../services/muscle/muscle.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,6 +29,7 @@ export class AddEntrainementComponent implements OnInit{
     private muscleService : MuscleService,
     private router : Router,
     private formBuilder: FormBuilder,
+    private notifier: NotifierService,
   ){
 
   }
@@ -69,6 +71,8 @@ export class AddEntrainementComponent implements OnInit{
     this.entrainementService.addEntrainement(this.form.value).subscribe(
       ()=> {
         this.router.navigate(['/entrainement'])
+        this.notifier.notify('success', 'Votre entrainement à été ajouté avec succès');
+
       }
     )
 

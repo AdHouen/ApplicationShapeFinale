@@ -17,6 +17,7 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { CommonModule } from '@angular/common';
 import { ListGallerieComponent } from './components/user/gallerie/list-gallerie/list-gallerie.component';
 import { GallerieImageComponent } from './components/user/gallerie/gallerie-image/gallerie-image.component';
+import { EditEntrainementComponent } from './components/user/entrainement/edit-entrainement/edit-entrainement.component';
 
 
 
@@ -27,7 +28,7 @@ const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
 			position: 'left',
-			distance: 12
+			distance: 250
 		},
 		vertical: {
 			position: 'top',
@@ -78,6 +79,7 @@ const customNotifierOptions: NotifierOptions = {
     ListGallerieComponent,
     UploadFileComponent,
     GallerieImageComponent,
+    EditEntrainementComponent,
 
 
 

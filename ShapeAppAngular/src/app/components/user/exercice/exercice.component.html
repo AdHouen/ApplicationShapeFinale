@@ -16,7 +16,7 @@
   <!-- Class Timetable Start -->
 <div class="tab-content " *ngFor="let item of muscles">
 
-  <div id="tab-{{item.muscleId}}" class="tab-pane fade p-0 " ng-init="afficherEnPrems()">
+  <div id="tab-1" class="tab-pane fade p-0 " ng-init="afficherEnPrems()">
         <table id="table_id" class="table align-middle  table-striped" >
         <thead>
             <tr>
@@ -28,8 +28,8 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of exercices">
-            <td *ngIf="item.muscleId==item.muscleId">{{item.nom}}</td>
-            <td *ngIf="item.muscleId==item.muscleId" >
+            <td *ngIf="item.muscleId==1">{{item.nom}}</td>
+            <td *ngIf="item.muscleId==1" >
               <div class="responsive ">
                 <div class="gallery  ">
                   <div class="image">
@@ -38,7 +38,7 @@
                 </div>
               </div>
             </td>
-            <td *ngIf="item.muscleId==item.muscleId" >
+            <td *ngIf="item.muscleId==1" >
               <div class="responsive ">
                 <div class="gallery  ">
                   <div class="image">
@@ -48,7 +48,7 @@
               </div>
             </td>
 
-            <td *ngIf="item.muscleId==item.muscleId">{{item.description}}</td>
+            <td *ngIf="item.muscleId==1">{{item.description}}</td>
 
         </tr>
     </tbody>
