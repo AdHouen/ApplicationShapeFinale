@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { EntrainementService } from './../../../../services/entrainement/entrainement.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Entrainement } from './../../../../models/entrainement/entrainement';
 import { Component, OnInit } from '@angular/core';
 
@@ -27,10 +27,10 @@ export class EditEntrainementComponent implements OnInit{
 
   ngOnInit(): void {
     this.editForm = this.formBuilder.group({
-      entrainementId: [''],
-      jour: [''],
+      entrainementId: ['', Validators.required],
+      jour: ['', Validators.required],
       muscle: [''],
-      exercice: [''],
+      exercice: ['', Validators.required],
       serie: [''],
       repetition: [''],
       poids: [''],

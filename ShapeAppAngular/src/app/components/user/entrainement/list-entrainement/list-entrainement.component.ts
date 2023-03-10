@@ -36,6 +36,21 @@ export class ListEntrainementComponent implements OnInit {
     private formBuilder : FormBuilder,
 
   ){
+    // this.editForm = this.formBuilder.group({
+    //   entrainementId: ['', Validators.required],
+    //   jour: ['', Validators.required],
+    //   muscle: [''],
+    //   exercice: ['', Validators.required],
+    //   serie: [''],
+    //   repetition: [''],
+    //   poids: [''],
+    //   recup: [''],
+    //   temps: [''],
+    //   distance: [''],
+    //   uid: [''],
+    // })
+
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
   }
 
@@ -50,14 +65,10 @@ export class ListEntrainementComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('id') != null) {
       this.removeEntrainement();
       this.router.navigate(['/entrainement']);
-
     }
 
-
-
-
-
   }
+
   getMuscles() {
     this.muscleService.getAllMuscles().subscribe(
       data => {
@@ -67,15 +78,16 @@ export class ListEntrainementComponent implements OnInit {
       }
     )
   }
+
   getExercices() {
     this.exerciceService.getAllExercices().subscribe(
       data => {
         console.log(data);
         this.exercices=data;
-
       }
     )
   }
+
   getEntrainements() {
     this.entrainementService.getAllEntrainements().subscribe(
       data => {
@@ -98,7 +110,10 @@ export class ListEntrainementComponent implements OnInit {
     )
   }
   // Méthode pour modal
-  open(content: any) {
+  open(content: any, entrainement : Entrainement) {
+
+    this.editEntrainement=entrainement;
+
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
 			(result) => {
 				this.closeResult = `Closed with: ${result}`;
@@ -106,7 +121,12 @@ export class ListEntrainementComponent implements OnInit {
 			(reason) => {
 				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
 			},
+
 		);
+    // (document.getElementById("serie") as HTMLInputElement).value = this.editEntrainement.serie.toString();
+    // (document.getElementById("serie") as HTMLInputElement).style.borderColor = "red";
+    this.chargeValueEdit();
+
 	}
 
 	private getDismissReason(reason: any): string {
@@ -120,9 +140,35 @@ export class ListEntrainementComponent implements OnInit {
 	}
   //Fin Modal
 
+  // Edit Entrainement
+  update(){
+    if(this.editForm.valid) {
+      this.entrainementService.updateEntrainement2(this.editForm.value).subscribe(
+        () =>{
+          this.getEntrainements();
+          this.notifier.notify('success', 'Votre entrainement à été modifié avec succès');
+        }
+      )
+    }
+    console.log("je suis dans update");
 
-  
+  }
 
+  chargeValueEdit(){
+    this.editForm = this.formBuilder.group({
+      entrainementId: [this.editEntrainement.entrainementId, Validators.required],
+      jour: [this.editEntrainement.jour, Validators.required],
+      muscle: [this.editEntrainement.muscle],
+      exercice: [this.editEntrainement.exercice, Validators.required],
+      serie: [this.editEntrainement.serie],
+      repetition: [this.editEntrainement.repetition],
+      poids: [this.editEntrainement.poids],
+      recup: [this.editEntrainement.recup],
+      temps: [this.editEntrainement.temps],
+      distance: [this.editEntrainement.distance],
+      uid: [this.editEntrainement.uid],
+    })
+  }
 
 }
 
