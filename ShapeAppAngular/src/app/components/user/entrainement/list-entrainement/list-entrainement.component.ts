@@ -1,3 +1,5 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Entrainement } from './../../../../models/entrainement/entrainement';
 import { NotifierService } from 'angular-notifier';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,8 +19,10 @@ export class ListEntrainementComponent implements OnInit {
 
   declare muscles : Muscle [];
   declare exercices : Exercice[];
-  declare entrainements : any;
+  declare entrainement : any;
   public editEntrainement = new Entrainement() ;
+  closeResult = '';
+  declare editForm : FormGroup;
 
 
   constructor(
@@ -28,6 +32,8 @@ export class ListEntrainementComponent implements OnInit {
     private router : Router,
     private route : ActivatedRoute,
     private notifier: NotifierService,
+    private modalService: NgbModal,
+    private formBuilder : FormBuilder,
 
   ){
 
@@ -46,6 +52,28 @@ export class ListEntrainementComponent implements OnInit {
       this.router.navigate(['/entrainement']);
 
     }
+
+    this.editForm = this.formBuilder.group({
+      entrainementId: [''],
+      jour: [''],
+      muscle: [''],
+      exercice: [''],
+      serie: [''],
+      repetition: [''],
+      poids: [''],
+      recup: [''],
+      temps: [''],
+      distance: [''],
+      uid: [''],
+    })
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.entrainementService.editEntrainement(id).subscribe(
+      data => {
+        this.editForm.setValue(data);
+      }
+    )
+
 
 
   }
@@ -71,11 +99,12 @@ export class ListEntrainementComponent implements OnInit {
     this.entrainementService.getAllEntrainements().subscribe(
       data => {
         console.log(data);
-        this.entrainements=data;
+        this.entrainement=data;
 
       }
     )
   }
+
 
   removeEntrainement() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -87,19 +116,43 @@ export class ListEntrainementComponent implements OnInit {
       }
     )
   }
+  // Méthode pour modal
+  open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+			(result) => {
+				this.closeResult = `Closed with: ${result}`;
+			},
+			(reason) => {
+				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+			},
+		);
+	}
 
-  // Méthode pour éditer un utilisateur
-  public onEditEntrainement(editEntrainement : Entrainement) {
-    this.editEntrainement = editEntrainement;
+	private getDismissReason(reason: any): string {
+		if (reason === ModalDismissReasons.ESC) {
+			return 'by pressing ESC';
+		} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+			return 'by clicking on a backdrop';
+		} else {
+			return `with: ${reason}`;
+		}
+	}
+  //Fin Modal
 
-    this.clickButton('openEntrainementEdit');
+
+  // Edit Entrainement
+  update(){
+
+    if(this.editForm.valid) {
+
+      this.entrainementService.updateEntrainement2(this.editForm.value).subscribe(
+        () =>{
+          this.router.navigate(['/entrainement'])
+        }
+      )
+    }
   }
-
-  // Méthode générale pour le click des boutons
-  private clickButton(buttonId : string): void{
-    document.getElementById(buttonId)?.click();
-  }
-
 
 
 }
+

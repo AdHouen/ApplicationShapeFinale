@@ -1,6 +1,7 @@
+import { AppSettings } from './../../settings/app.setting';
 import { Observable } from 'rxjs';
 import { Entrainement } from './../../models/entrainement/entrainement';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -30,8 +31,17 @@ export class EntrainementService {
     return this.http.post<Entrainement>(`${this.host}/entrainements`, formData)
   }
 
+  public editEntrainement(id:number) {
+    return this.http.get(AppSettings.APP_URL+'/entrainements/'+id)
+
+  }
+  public updateEntrainement2(entrainement:Entrainement){
+    return this.http.put(AppSettings.APP_URL+'/entrainements/'+ entrainement.entrainementId, JSON.stringify(entrainement));
+  }
+
   /* I delete un entrainement */
   public deleteEntrainement(entrainementId: number) : Observable< Entrainement >{
     return this.http.delete<Entrainement>(`${this.host}/entrainements/${entrainementId}`);
   }
+
 }

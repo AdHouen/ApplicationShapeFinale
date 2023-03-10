@@ -117,10 +117,7 @@ h2 {
 
 }
 
-.container .buttonSubmit{
-  display: flex;
-  justify-content: center;
-}
+
 
 .container .choixExos{
   display: flex;
@@ -223,4 +220,10 @@ h2 {
   align-items: center;
 
 
+}
+
+/* Button submit */
+.container .buttonSubmit{
+  display: flex;
+  justify-content: center;
 }
