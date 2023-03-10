@@ -1,3 +1,4 @@
+import { EditEntrainementComponent } from './components/user/entrainement/edit-entrainement/edit-entrainement.component';
 import { UploadFileComponent } from './components/user/gallerie/upload-file/upload-file.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AddEntrainementComponent } from './components/user/entrainement/add-entrainement/add-entrainement.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'entrainement' ,component:ListEntrainementComponent },// Entrainement
   {path: 'entrainements/:id' ,component:ListEntrainementComponent },
   {path: 'addEntrainement' ,component:AddEntrainementComponent },// Ajouter un entrainement
+  {path: 'editEntrainement/:id' ,component:EditEntrainementComponent },// Edit un entrainement
   {path: 'galerie' ,component:UploadFileComponent },// Galerie
 
 ];

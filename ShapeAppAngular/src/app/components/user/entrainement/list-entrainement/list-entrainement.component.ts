@@ -53,26 +53,7 @@ export class ListEntrainementComponent implements OnInit {
 
     }
 
-    this.editForm = this.formBuilder.group({
-      entrainementId: [''],
-      jour: [''],
-      muscle: [''],
-      exercice: [''],
-      serie: [''],
-      repetition: [''],
-      poids: [''],
-      recup: [''],
-      temps: [''],
-      distance: [''],
-      uid: [''],
-    })
-    const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.entrainementService.editEntrainement(id).subscribe(
-      data => {
-        this.editForm.setValue(data);
-      }
-    )
 
 
 
@@ -140,18 +121,7 @@ export class ListEntrainementComponent implements OnInit {
   //Fin Modal
 
 
-  // Edit Entrainement
-  update(){
-
-    if(this.editForm.valid) {
-
-      this.entrainementService.updateEntrainement2(this.editForm.value).subscribe(
-        () =>{
-          this.router.navigate(['/entrainement'])
-        }
-      )
-    }
-  }
+  
 
 
 }

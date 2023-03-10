@@ -64,7 +64,7 @@
             <td *ngIf="item.jour=='Lundi'">{{item.temps}}</td>
             <td *ngIf="item.jour=='Lundi'">{{item.distance}}</td>
             <td *ngIf="item.jour=='Lundi'">
-              <button class="btn btn-lg btn-outline-info" (click)="open(editEntrainement)"><i class="fas fa-edit"></i> Edit</button>
+              <button class="btn btn-lg btn-outline-info" routerLink='/editEntrainement/{{item.entrainementId}}'><i class="fas fa-edit"></i> Edit</button>
 
             </td>
             <td *ngIf="item.jour=='Lundi'">
@@ -304,47 +304,6 @@
   </div>
 </div>
 
-<!-- Modal Editer un entrainement -->
-<ng-template #editEntrainement let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="modal-basic-title">Editer : Entrainement</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-		<form  [formGroup]="editForm" (ngSubmit)="update()">
-      <div class="form-group">
-        <div class="input-field col s16">
-          <label for="content">serie</label>
-          <input type="text" name="" id="serie"  class="form-control" formControlName="serie" data-length="10">
-        </div>
-        <div class="input-field col s16">
-          <label for="content">repetition</label>
-          <input type="text" name="" id="repetition"  class="form-control" formControlName="repetition" data-length="10">
-        </div>
-        <div class="input-field col s16">
-          <label for="content">poids</label>
-          <input type="text" name="" id="poids"  class="form-control" formControlName="poids" data-length="10">
-        </div>
-        <div class="input-field col s16">
-          <label for="content">recup</label>
-          <input type="text" name="" id="recup"  class="form-control" formControlName="recup" data-length="10">
-        </div>
-        <div class="input-field col s16">
-          <label for="content">temps</label>
-          <input type="text" name="" id="temps"  class="form-control" formControlName="temps" data-length="10">
-        </div>
-        <div class="input-field col s16">
-          <label for="content">distance</label>
-          <input type="text" name="" id="distance"  class="form-control" formControlName="distance" data-length="10">
-        </div>
-
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-        </div>
-      </div>
-    </form>
-    {{editForm.value | json}}
-  </div>
-</ng-template>
+<!-- (click)="open(editEntrainement)" -->
 
 
