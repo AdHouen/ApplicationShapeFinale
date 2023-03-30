@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shape.ShapeAppSpring.dao.GalerieDao;
 import com.shape.ShapeAppSpring.domain.Galerie;
+import com.shape.ShapeAppSpring.domain.Mensuration;
 
 
 
@@ -82,6 +83,12 @@ public class GalerieController {
 		galerieDao.deleteGalerie(galerie);
 		return ResponseEntity.ok().body(galerie); 
 	
+	}
+	
+	@GetMapping("/galeries/date")
+	public List<Galerie> getAllPhotosByDate(@Validated @RequestBody(required = false) Galerie galerie) {
+		return galerieDao.getPhotosByDate();
+		
 	}
 	
 

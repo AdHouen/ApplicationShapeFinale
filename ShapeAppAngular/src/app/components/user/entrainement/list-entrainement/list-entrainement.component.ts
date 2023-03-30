@@ -36,21 +36,7 @@ export class ListEntrainementComponent implements OnInit {
     private formBuilder : FormBuilder,
 
   ){
-    // this.editForm = this.formBuilder.group({
-    //   entrainementId: ['', Validators.required],
-    //   jour: ['', Validators.required],
-    //   muscle: [''],
-    //   exercice: ['', Validators.required],
-    //   serie: [''],
-    //   repetition: [''],
-    //   poids: [''],
-    //   recup: [''],
-    //   temps: [''],
-    //   distance: [''],
-    //   uid: [''],
-    // })
 
-    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
   }
 
@@ -72,7 +58,6 @@ export class ListEntrainementComponent implements OnInit {
   getMuscles() {
     this.muscleService.getAllMuscles().subscribe(
       data => {
-        console.log(data);
         this.muscles=data;
 
       }
@@ -82,7 +67,6 @@ export class ListEntrainementComponent implements OnInit {
   getExercices() {
     this.exerciceService.getAllExercices().subscribe(
       data => {
-        console.log(data);
         this.exercices=data;
       }
     )
@@ -91,14 +75,13 @@ export class ListEntrainementComponent implements OnInit {
   getEntrainements() {
     this.entrainementService.getAllEntrainements().subscribe(
       data => {
-        console.log(data);
         this.entrainement=data;
 
       }
     )
   }
 
-
+  // Méthode Delete
   removeEntrainement() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.entrainementService.deleteEntrainement(id).subscribe(
@@ -109,6 +92,7 @@ export class ListEntrainementComponent implements OnInit {
       }
     )
   }
+  
   // Méthode pour modal
   open(content: any, entrainement : Entrainement) {
 

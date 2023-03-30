@@ -54,9 +54,9 @@ public class MensurationDao {
 	
 	// Liste des Mensurations by Date
 	
-		public List<Mensuration> getMensurationsByDate() {
-			return mensurationRepository.findAllByOrderByDateDesc();
+	public List<Mensuration> getMensurationsByDate() {
+		return mensurationRepository.findAllByOrderByDateDesc();
 			
-		}
+	}
 
 }

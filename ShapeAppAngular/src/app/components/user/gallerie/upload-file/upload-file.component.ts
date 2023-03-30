@@ -93,7 +93,7 @@ export class UploadFileComponent implements OnInit{
     }
 
     delPhoto(id:number){
-     
+
      window.location.reload();
 
 

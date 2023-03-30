@@ -31,7 +31,7 @@ export class ListGallerieComponent implements OnInit {
 
   }
   getGalleries() {
-    return this.galerieService.getAllGaleries().subscribe(
+    return this.galerieService.findAllPhotosByDate().subscribe(
       (data=>{
 
         this.galerie = data as any [];

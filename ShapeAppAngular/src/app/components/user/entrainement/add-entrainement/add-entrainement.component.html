@@ -26,90 +26,110 @@
 				</div>
 			</div>
         <br>
-        
-        <div class="container choixExos">
-			<!-- Choix radio muscle -->
-			<div class="radio" >
-				<div class="container radioMuscle" *ngFor="let m of muscles">
-					<input type="radio" id="muscle_{{m.muscleId}}"  value="{{m.nom}}" formControlName="muscle" (change)="afficherExo(m.muscleId)">
-					<label for="muscle_{{m.muscleId}}">{{m.nom}}</label>
-				</div>
-			</div>
+
+      <div class="container choixExos">
+        <!-- Choix radio muscle -->
+        <div class="radio" >
+          <div class="container radioMuscle" *ngFor="let m of muscles">
+            <input type="radio" id="muscle_{{m.muscleId}}"  value="{{m.nom}}" formControlName="muscle" (change)="afficherExo(m.muscleId)">
+            <label for="muscle_{{m.muscleId}}">{{m.nom}}</label>
+          </div>
+        </div>
 
 
         <!-- Choix radio exercice par muscle affichage ou non -->
 
-
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==1" >
-            <input type="radio" id="exerciceEpaule_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceEpaule_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==1" >
+              <input type="radio" id="exerciceEpaule_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceEpaule_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==2" >
-            <input   type="radio" id="exerciceBiceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceBiceps_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==2" >
+              <input   type="radio" id="exerciceBiceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceBiceps_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==3" >
-            <input   type="radio" id="exerciceTriceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceTriceps_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==3" >
+              <input   type="radio" id="exerciceTriceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceTriceps_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==4" >
-            <input   type="radio" id="exercicePectoraux_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exercicePectoraux_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==4" >
+              <input   type="radio" id="exercicePectoraux_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exercicePectoraux_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==5" >
-            <input   type="radio" id="exerciceDos_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceDos_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==5" >
+              <input   type="radio" id="exerciceDos_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceDos_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==6" >
-            <input   type="radio" id="exerciceAbdominaux_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceAbdominaux_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==6" >
+              <input   type="radio" id="exerciceAbdominaux_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceAbdominaux_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==7" >
-            <input   type="radio" id="exerciceFessiers_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceFessiers_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==7" >
+              <input   type="radio" id="exerciceFessiers_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceFessiers_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==8" >
-            <input   type="radio" id="exerciceQuadriceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceQuadriceps_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==8" >
+              <input   type="radio" id="exerciceQuadriceps_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceQuadriceps_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==9" >
-            <input   type="radio" id="exerciceIschio_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceIschio_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==9" >
+              <input   type="radio" id="exerciceIschio_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceIschio_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
 
-        <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
-          <div class="container radioExercice"  *ngIf="item.muscleId==10" >
-            <input   type="radio" id="exerciceMollets_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
-            <label for="exerciceMollets_{{item.exerciceId}}" >{{item.nom}}</label>
+        <div>
+          <div [class]="'radio'+ (typeMuscle != item.muscleId?' hide':'') "  *ngFor="let item of exercices" >
+            <div class="container radioExercice"  *ngIf="item.muscleId==10" >
+              <input   type="radio" id="exerciceMollets_{{item.exerciceId}}"  value="{{item.nom}}" formControlName="exercice">
+              <label for="exerciceMollets_{{item.exerciceId}}" >{{item.nom}}</label>
+            </div>
           </div>
         </div>
       </div>
+
 
 
 

@@ -30,10 +30,13 @@ export class GalerieService {
     return this.http.post<Galerie>(`${this.host}/galeries`, formData)
   }
 
-  /* I delete un muscle */
+  /* I delete une photo de la galerie */
   public deleteGalerie(galerieId: number) : Observable<Galerie>{
     console.log("log delGalerie : "+galerieId);
 
     return this.http.delete<Galerie>(`${this.host}/galeries/${galerieId}`);
+  }
+  public findAllPhotosByDate(){
+    return this.http.get<Galerie[]>(`${this.host}/galeries/date`)
   }
 }

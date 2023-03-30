@@ -45,9 +45,6 @@ export class ExerciceComponent implements OnInit {
 
   }
 
-  afficherEnPrems(){
-    document.getElementById("id-1")?.click();
-  }
   getMuscles() {
     this.muscleService.getAllMuscles().subscribe(
       data => {

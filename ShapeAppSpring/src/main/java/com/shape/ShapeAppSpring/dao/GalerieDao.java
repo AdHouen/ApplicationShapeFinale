@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shape.ShapeAppSpring.domain.Galerie;
+import com.shape.ShapeAppSpring.domain.Mensuration;
 import com.shape.ShapeAppSpring.repository.IGalerieRepository;
 
 
@@ -50,6 +51,13 @@ public class GalerieDao {
 	public Galerie updateGalerie(Galerie galerie) {
 		return galerieRepository.save(galerie);
 		
+	}
+	
+	// Liste des photos by Date
+	
+	public List<Galerie> getPhotosByDate() {
+		return galerieRepository.findAllByOrderByDateDesc();
+			
 	}
 
 }
